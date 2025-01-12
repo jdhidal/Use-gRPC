@@ -8,7 +8,7 @@ def run():
     stub = chat_pb2_grpc.ChatServiceStub(channel)
 
     # Create a message to send to the server
-    message = chat_pb2.ChatMessage(message="Hello, Server!", user="Client")
+    message = chat_pb2.ChatMessage(message="Hello, Server!", user="Diego")
 
     # Send the message and get the response
     response = stub.SendMessage(message)

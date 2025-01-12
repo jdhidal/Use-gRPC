@@ -7,6 +7,10 @@ import chat_pb2_grpc
 
 class ChatService(chat_pb2_grpc.ChatServiceServicer):
     def SendMessage(self, request, context):
+        # Retrieve client information
+        client_address = context.peer()  # Client's address
+        print(f"Client connected: {client_address}, Name: {request.user}")
+
         # Here we just return a simple response with the received message
         response_message = f"Hello {request.user}, you said: {request.message}"
         return chat_pb2.ChatResponse(response=response_message)
